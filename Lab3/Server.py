@@ -13,10 +13,10 @@ class Handler_TCPServer(socketserver.BaseRequestHandler):
     def sendF(self,f):
         print("Envio")
         l = f.read(1024)
-
+        i=0
         while (l):
-            # print("Envio paquete")
-            # print(l)
+            print("Envio paquete",i)
+            i+=1
             self.request.sendall(l)
             l = f.read(1024)
         print("Fin Envio")
@@ -52,13 +52,18 @@ class Handler_TCPServer(socketserver.BaseRequestHandler):
                     if(self.data==b'1'):
                         print("Prueba 1")
 
-                        f = open("Doc/Prueba3.pdf", 'rb')  # open in binary
+                        f = open("Doc/Prueba.txt", 'rb')  # open in binary
                         self.sendF(f)
                     elif(self.data==b'2'):
                         print("Prueba2")
 
                         f = open("Doc/Prueba2.docx", 'rb')  # open in binary
                         self.sendF( f)
+                    elif (self.data == b'3'):
+                        print("Prueba3")
+
+                        f = open("Doc/Prueba3.pdf", 'rb')  # open in binary
+                        self.sendF(f)
 
 
 
