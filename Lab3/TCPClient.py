@@ -28,7 +28,7 @@ try:
     message = "SYN"
     tcp_client.sendall(message.encode())
     print("Sent:",message)
-    f=""
+    f=open("Doc/Recibido3.pdf", "wb")
     while True:
         received = tcp_client.recv(1024)
         print(received)
@@ -43,33 +43,36 @@ try:
 
                 print("Fin Handshake")
 
-                received = tcp_client.recv(1024)
-                print(received)
-                if(received==b'Peticion'):
-                    entr=int(input("Ingrese prueba a realizar (1,2, o 3)"))
-                    if(entr==1):
-                        message="1"
-                        tcp_client.sendall(message.encode())
-                        print("Sent:", message)
+                recibirF(f)
+                # TODO propbar hasta aqui funciona bien
 
-                        f = open("Doc/Recibido.txt", "wb")
-                        recibirF(f)
-                    elif(entr==2):
-                        f = open("Doc/Recibido2.docx", "wb")
-
-                        message = "2"
-                        tcp_client.sendall(message.encode())
-                        print("Sent:", message)
-
-                        recibirF(f)
-                    elif (entr == 3):
-                        f = open("Doc/Recibido3.pdf", "wb")
-
-                        message = "3"
-                        tcp_client.sendall(message.encode())
-                        print("Sent:", message)
-
-                        recibirF(f)
+                # received = tcp_client.recv(1024)
+                # print(received)
+                # if(received==b'Peticion'):
+                #     entr=int(input("Ingrese prueba a realizar (1,2, o 3)"))
+                #     if(entr==1):
+                #         message="1"
+                #         tcp_client.sendall(message.encode())
+                #         print("Sent:", message)
+                #
+                #         f = open("Doc/Recibido.txt", "wb")
+                #         recibirF(f)
+                #     elif(entr==2):
+                #         f = open("Doc/Recibido2.docx", "wb")
+                #
+                #         message = "2"
+                #         tcp_client.sendall(message.encode())
+                #         print("Sent:", message)
+                #
+                #         recibirF(f)
+                #     elif (entr == 3):
+                #         f = open("Doc/Recibido3.pdf", "wb")
+                #
+                #         message = "3"
+                #         tcp_client.sendall(message.encode())
+                #         print("Sent:", message)
+                #
+                #         recibirF(f)
 finally:
     print("Fin Recibo3")
 

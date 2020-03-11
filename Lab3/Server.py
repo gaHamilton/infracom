@@ -29,6 +29,9 @@ class Handler_TCPServer(socketserver.BaseRequestHandler):
             self.data = self.request.recv(1024)
             print("{} sent:".format(self.client_address[0]))
             print(self.data)
+
+            f=open("Doc/Prueba3.pdf", 'rb')  # open in binary
+
             if(self.data==b'SYN'):
                 message="SYN"
                 self.request.sendall(message.encode())
@@ -44,26 +47,29 @@ class Handler_TCPServer(socketserver.BaseRequestHandler):
 
                     print("Fin Handshake")
 
-                    message= "Peticion"
-                    self.request.sendall(message.encode())
-                    print("Sent:", message)
+                    self.sendF(f)
+                    # TODO probar hasta aqui funciona bien
 
-                    self.data = self.request.recv(1024)
-                    if(self.data==b'1'):
-                        print("Prueba 1")
-
-                        f = open("Doc/Prueba.txt", 'rb')  # open in binary
-                        self.sendF(f)
-                    elif(self.data==b'2'):
-                        print("Prueba2")
-
-                        f = open("Doc/Prueba2.docx", 'rb')  # open in binary
-                        self.sendF( f)
-                    elif (self.data == b'3'):
-                        print("Prueba3")
-
-                        f = open("Doc/Prueba3.pdf", 'rb')  # open in binary
-                        self.sendF(f)
+                    # message= "Peticion"
+                    # self.request.sendall(message.encode())
+                    # print("Sent:", message)
+                    #
+                    # self.data = self.request.recv(1024)
+                    # if(self.data==b'1'):
+                    #     print("Prueba 1")
+                    #
+                    #     f = open("Doc/Prueba.txt", 'rb')  # open in binary
+                    #     self.sendF(f)
+                    # elif(self.data==b'2'):
+                    #     print("Prueba2")
+                    #
+                    #     f = open("Doc/Prueba2.docx", 'rb')  # open in binary
+                    #     self.sendF( f)
+                    # elif (self.data == b'3'):
+                    #     print("Prueba3")
+                    #
+                    #     f = open("Doc/Prueba3.pdf", 'rb')  # open in binary
+                    #     self.sendF(f)
 
 
 
