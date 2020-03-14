@@ -1,6 +1,7 @@
 import socket
 import threading
 import hashlib
+import time
 
 BUFF=1024
 
@@ -16,10 +17,11 @@ def cliente(num):
     s.send("READY".encode())
     print("Conexion con el servidor lista")
 
-    # TODO Recbir tipo de archivo
     data = s.recv(BUFF)
     fTipo=data.decode()
     print("Tipo del archivo a recibir:",fTipo)
+
+    finT=0
 
     hashR=""
     sha1=hashlib.sha1()
@@ -40,6 +42,7 @@ def cliente(num):
                 # print(data[val:])
                 sha1.update(data[:val])
                 hashR = data[val:]
+                finT=time.time()
                 break
             else:
                 sha1.update(data)
@@ -64,6 +67,10 @@ def cliente(num):
 
     # Notificacion de recepcion
     s.send(("Client " + str(num) + " termino con estado de " + notif).encode())
+
+    # Envio de tiempo
+    print(str(finT))
+    s.send(str(finT).encode())
 
     s.close()
     print('FIN')

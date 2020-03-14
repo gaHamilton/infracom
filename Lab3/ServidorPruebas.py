@@ -1,5 +1,6 @@
 import socket
 import hashlib
+import time
 
 global numClientesC
 BUFF=1024
@@ -52,10 +53,10 @@ while True:
     sha1 = hashlib.sha1()
     if(numClientesC>numClientes):
         i=0
-
         conn.send(fileT.encode())
         print("Tipo del archivo a enviar: ",fileT.encode())
 
+        inicioT = time.time()
         with open(fileName , 'rb') as f:
             print('file opened -Read')
             while True:
@@ -81,6 +82,9 @@ while True:
 
         data=conn.recv(BUFF)
         print(data.decode())
+        data = conn.recv(BUFF)
+        finT=float(data.decode())
+        print("Tiempo total:",finT-inicioT, "Segundos")
         print('Fin envio')
         numClientesC -= 1
         print("Numero Clientes Conectados: ", numClientesC)
