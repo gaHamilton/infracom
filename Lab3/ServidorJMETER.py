@@ -40,17 +40,14 @@ print('Server listening....')
 while True:
     conn, addr = s.accept()     # Establish connection with client.
 
-    numClientesC+=1
-    print("Numero Clientes Conectados: ",numClientesC)
+    # numClientesC+=1
+    # print("Numero Clientes Conectados: ",numClientesC)
     # print('Got connection from', addr)
-    data = conn.recv(BUFF)
-    print('Server received', data.decode())
 
-    sha1 = hashlib.sha1()
     if(numClientesC>=numClientes):
         i=0
-        conn.send(fileT.encode())
-        print("Tipo del archivo a enviar: ",fileT.encode())
+        # conn.send(fileT.encode())
+        # print("Tipo del archivo a enviar: ",fileT.encode())
 
         inicioT = time.time()
         with open(fileName , 'rb') as f:
@@ -60,28 +57,14 @@ while True:
                 i += 1
                 data = f.read(BUFF)
                 # print('data=%s', (data))
-
                 if not data:
                     break
-                sha1.update(data)
-                # print("Sha Modificado :",i-1,"Veces")
                 conn.send(data)
 
 
-        print("Paquetes enviados: ",i)
-        print("Hash Calculado:\n",sha1.hexdigest())
-        has=str(sha1.hexdigest())
-
-        conn.send(("FINM"+has).encode())
-
+        # print("Paquetes enviados: ",i)
         f.close()
-
-        data=conn.recv(BUFF)
-        print(data.decode())
-        data = conn.recv(BUFF)
-        finT=float(data.decode())
-        print("Tiempo total:",finT-inicioT, "Segundos")
         print('Fin envio')
-        numClientesC -= 1
-        print("Numero Clientes Conectados: ", numClientesC)
+        # numClientesC -= 1
+        # print("Numero Clientes Conectados: ", numClientesC)
         conn.close()
