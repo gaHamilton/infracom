@@ -7,7 +7,7 @@ BUFF=1024
 
 port = 9999
 s = socket.socket()
-host = ""
+host = "localhost"
 s.bind((host, port))
 s.listen(25)
 
@@ -20,7 +20,7 @@ def pedirDatos():
         fileT=".mp4"
     elif(entr==2):
         # TODO aun no hay un archivo de 250 MB, remplazado por uno de prueba de 11MB
-        fileName="Doc/Prueba3.pdf"
+        fileName="Doc/Prueba2.docx"
         fileT=".pdf"
     entr = int(input("Ingrese el numero de clientes en simultaneo a enviar el archivo"))
     numClientes=entr
@@ -32,6 +32,7 @@ fileName=tup[0]
 numClientes=tup[2]
 fileT=tup[1]
 numClientesC=0
+# atender=False
 
 print('Server listening....')
 
@@ -40,11 +41,13 @@ print('Server listening....')
 while True:
     conn, addr = s.accept()     # Establish connection with client.
 
-    # numClientesC+=1
-    # print("Numero Clientes Conectados: ",numClientesC)
+    print("Cliente entro")
+    numClientesC+=1
+    print("Numero Clientes Conectados: ",numClientesC)
     # print('Got connection from', addr)
 
-    if(numClientesC>=numClientes):
+    if(numClientesC>=numClientes ):
+        # atender=True
         i=0
         # conn.send(fileT.encode())
         # print("Tipo del archivo a enviar: ",fileT.encode())
@@ -65,6 +68,6 @@ while True:
         # print("Paquetes enviados: ",i)
         f.close()
         print('Fin envio')
-        # numClientesC -= 1
-        # print("Numero Clientes Conectados: ", numClientesC)
+        numClientesC -= 1
+        print("Numero Clientes Conectados: ", numClientesC)
         conn.close()
