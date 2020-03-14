@@ -14,8 +14,14 @@ def cliente(num):
 
     s.connect((host, port))
     s.send("READY".encode())
+
+    # Recbir tipo de archivo
+    # conn.recv(BUFF)
+    # fTipo=s
+    # print("RECIBIDO:",fTipo)
+
     sha1=hashlib.sha1()
-    with open('Doc/received_file'+str(num)+".docx", 'wb') as f:
+    with open('Doc/received_file'+str(num)+".pdf", 'wb') as f:
         print('file opened -Write')
         while True:
             print('receiving data...',i)
