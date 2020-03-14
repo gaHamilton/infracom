@@ -14,45 +14,56 @@ def cliente(num):
 
     s.connect((host, port))
     s.send("READY".encode())
+    print("Conexion con el servidor lista")
 
-    # Recbir tipo de archivo
+    # TODO Recbir tipo de archivo
     # s.recv(BUFF)
     # fTipo=s.decode()
     # print("RECIBIDO:",fTipo)
 
     hashR=""
     sha1=hashlib.sha1()
-    with open('Doc/received_file'+str(num)+".txt", 'wb') as f:
+    with open('Doc/received_file'+str(num)+".docx", 'wb') as f:
         print('file opened -Write')
         while True:
-            print('receiving data...',i)
+            # print('receiving data...',i)
             i+=1
             data = s.recv(BUFF)
             # print('data=%s', (data))
             if not data:
                 break
 
-            elif (data.decode().startswith("FINM")):
-                hashR = data.decode()
+            elif (data.__contains__(b"FINM")):
+                val=data.find(b"FINM")
+                # print(data[0:val])
+                # print("--------------------")
+                # print(data[val:])
+                sha1.update(data[:val])
+                hashR = data[val:]
                 break
             else:
                 sha1.update(data)
                 f.write(data)
 
 
-    hashR=hashR[4:]
+    print("Paquetes leidos: ",i)
+    hashR=hashR[4:].decode()
     print("Hash Recibido: \n",hashR)
 
     print("Hash Calculado:\n",sha1.hexdigest())
     # print("Son iguales?\n",hashR==sha1.hexdigest())
     f.close()
 
-    s.send(("Done Client "+str(num)).encode())
-
+    notif=""
     if(hashR==sha1.hexdigest()):
+        notif="Exito"
         print("Archivo recibido Exitosamente")
     else:
+        notif = "Error"
         print("El Hash del archivo recibido es diferente del calculado")
+
+    # Notificacion de recepcion
+    s.send(("Client " + str(num) + " termino con estado de " + notif).encode())
 
     s.close()
     print('FIN')

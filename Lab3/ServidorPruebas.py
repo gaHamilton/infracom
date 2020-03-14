@@ -18,7 +18,7 @@ def pedirDatos():
         fileT=".mp4"
     elif(entr==2):
         # TODO aun no hay un archivo de 250 MB, remplazado por uno de prueba de 11MB
-        fileName="Doc/Prueba.txt"
+        fileName="Doc/Prueba2.docx"
         fileT=".pdf"
     entr = int(input("Ingrese el numero de clientes en simultaneo a enviar el archivo"))
     numClientes=entr
@@ -44,7 +44,7 @@ while True:
     data = conn.recv(BUFF)
     print('Server received', data.decode())
 
-    # Enviar tipo de archivo
+    # TODO Enviar tipo de archivo
     # conn.send(fileT.encode())
 
 
@@ -54,10 +54,10 @@ while True:
         with open(fileName , 'rb') as f:
             print('file opened -Read')
             while True:
-                print('sending data...',i)
+                # print('sending data...',i)
                 i += 1
                 data = f.read(BUFF)
-                print('data=%s', (data))
+                # print('data=%s', (data))
 
                 if not data:
                     break
@@ -66,7 +66,7 @@ while True:
                 conn.send(data)
 
 
-
+        print("Paquetes enviados: ",i)
         print("Hash Calculado:\n",sha1.hexdigest())
         has=str(sha1.hexdigest())
 
@@ -76,7 +76,7 @@ while True:
 
         data=conn.recv(BUFF)
         print(data.decode())
-        print('Done sending')
+        print('Fin envio')
         numClientesC -= 1
         print("Numero Clientes Conectados: ", numClientesC)
         conn.close()
