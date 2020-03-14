@@ -16,12 +16,13 @@ def cliente(num):
     s.send("READY".encode())
 
     # Recbir tipo de archivo
-    # conn.recv(BUFF)
-    # fTipo=s
+    # s.recv(BUFF)
+    # fTipo=s.decode()
     # print("RECIBIDO:",fTipo)
 
+    hashR=""
     sha1=hashlib.sha1()
-    with open('Doc/received_file'+str(num)+".pdf", 'wb') as f:
+    with open('Doc/received_file'+str(num)+".txt", 'wb') as f:
         print('file opened -Write')
         while True:
             print('receiving data...',i)
@@ -30,25 +31,31 @@ def cliente(num):
             # print('data=%s', (data))
             if not data:
                 break
-            sha1.update(data)
-            # print("Sha Modificado :",i-1,"Veces")
-            # write data to a file
-            f.write(data)
 
+            elif (data.decode().startswith("FINM")):
+                hashR = data.decode()
+                break
+            else:
+                sha1.update(data)
+                f.write(data)
+
+
+    hashR=hashR[4:]
+    print("Hash Recibido: \n",hashR)
 
     print("Hash Calculado:\n",sha1.hexdigest())
-    print("Son iguales?\n",data==sha1)
+    # print("Son iguales?\n",hashR==sha1.hexdigest())
     f.close()
 
-    s.send("DONE".encode())
+    s.send(("Done Client "+str(num)).encode())
 
-    if(data==sha1):
+    if(hashR==sha1.hexdigest()):
         print("Archivo recibido Exitosamente")
     else:
         print("El Hash del archivo recibido es diferente del calculado")
 
     s.close()
-    print('connection closed')
+    print('FIN')
 
 
 t1 = threading.Thread(target=cliente(1))
