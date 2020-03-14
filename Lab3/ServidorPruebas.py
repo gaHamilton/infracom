@@ -51,7 +51,7 @@ while True:
 
 
     sha1 = hashlib.sha1()
-    if(numClientesC>numClientes):
+    if(numClientesC>=numClientes):
         i=0
         conn.send(fileT.encode())
         print("Tipo del archivo a enviar: ",fileT.encode())
