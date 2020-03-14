@@ -1,6 +1,7 @@
 import socket
 import hashlib
 
+global numClientesC
 BUFF=1024
 
 port = 9999
@@ -18,7 +19,7 @@ def pedirDatos():
         fileT=".mp4"
     elif(entr==2):
         # TODO aun no hay un archivo de 250 MB, remplazado por uno de prueba de 11MB
-        fileName="Doc/Prueba2.docx"
+        fileName="Doc/Prueba3.pdf"
         fileT=".pdf"
     entr = int(input("Ingrese el numero de clientes en simultaneo a enviar el archivo"))
     numClientes=entr
@@ -33,7 +34,7 @@ numClientesC=0
 
 print('Server listening....')
 
-print(fileName," ----",fileT," ----- ",numClientes)
+# print(fileName," ----",fileT," ----- ",numClientes)
 
 while True:
     conn, addr = s.accept()     # Establish connection with client.
@@ -51,6 +52,10 @@ while True:
     sha1 = hashlib.sha1()
     if(numClientesC>numClientes):
         i=0
+
+        conn.send(fileT.encode())
+        print("Tipo del archivo a enviar: ",fileT.encode())
+
         with open(fileName , 'rb') as f:
             print('file opened -Read')
             while True:

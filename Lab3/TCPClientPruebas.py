@@ -17,13 +17,13 @@ def cliente(num):
     print("Conexion con el servidor lista")
 
     # TODO Recbir tipo de archivo
-    # s.recv(BUFF)
-    # fTipo=s.decode()
-    # print("RECIBIDO:",fTipo)
+    data = s.recv(BUFF)
+    fTipo=data.decode()
+    print("Tipo del archivo a recibir:",fTipo)
 
     hashR=""
     sha1=hashlib.sha1()
-    with open('Doc/received_file'+str(num)+".docx", 'wb') as f:
+    with open('Doc/received_file'+str(num)+fTipo, 'wb') as f:
         print('file opened -Write')
         while True:
             # print('receiving data...',i)
