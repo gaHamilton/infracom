@@ -15,7 +15,6 @@ def pedirDatos():
         fileName = "Doc/Prueba4.mp4"
         fileT = ".mp4"
     elif (entr == 2):
-        # TODO aun no hay un archivo de 250 MB, remplazado por uno de prueba de 11MB
         fileName = "Doc/Prueba3.pdf"
         fileT = ".pdf"
     entr = int(input("Ingrese el numero de clientes en simultaneo a enviar el archivo"))
@@ -47,7 +46,7 @@ def servidor():
         if(data.decode()=="READY"):
             sha1 = hashlib.sha1()
             while True:
-                if (numClientesC >= numClientes):
+                if (numClientesC >= numClientes or atender):
                     print("Starting to send")
                     break
             atender=True
@@ -60,19 +59,15 @@ def servidor():
             with open(fileName, 'rb') as f:
                 # print("Starting to send")
                 while True:
-                    # print('sending data...',i)
                     i += 1
                     data = f.read(BUFF)
-                    # print('data=%s', (data))
 
                     if not data:
                         break
                     sha1.update(data)
-                    # print("Sha Modificado :",i-1,"Veces")
 
                     conn.send(data)
-                    # print("Paquetes enviados: ",i)
-                    # print("Hash Calculado:\n",sha1.hexdigest())
+
                 print("Archivo Enviado")
                 # Envio de Hash
                 has = str(sha1.hexdigest())
@@ -80,8 +75,8 @@ def servidor():
 
                 f.close()
 
-                # Notificacion de recepcion
                 data = conn.recv(BUFF)
+                # Notificacion de recepcion
                 datosCiente = data.decode().split("/")
                 recepcion = datosCiente[1]
                 print(recepcion)
@@ -142,8 +137,6 @@ logName = createLog()
 
 
 def logDatosCliente(recepcion, tiempo, numPaqEnv, numPaqRecv,hashR, hash):
-    # Identifique cada cliente al que se realiza la transferencia de archivos Identifique si la entrega del archivo
-    # fue exitosa o no. Tome  los  tiempos  de  transferencia  a  cada  uno  de  los  clientes
 
     with lock:
         paquetesE="Numero de paquetes enviados por el servidor:" + str(numPaqEnv) + "\n"
@@ -165,25 +158,8 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = ""
 s.bind((host, port))
 
-# Puede mandarse por parametro el numero de conexiones que se pueden aceptar antes de rechazar nuevas conexiones
+# Por parametro el numero de conexiones que se pueden aceptar antes de rechazar nuevas conexiones
 s.listen(25)
-
-# servidor()
-
-# t1 = threading.Thread(target=servidor, args=())
-# t2 = threading.Thread(target=servidor, args=())
-# t3 = threading.Thread(target=servidor, args=())
-# t4 = threading.Thread(target=servidor, args=())
-
-# t1.start()
-# t2.start()
-# t3.start()
-# t4.start()
-
-# t1.join()
-# t2.join()
-# t3.join()
-# t4.join()
 
 for i in range(25):
     t= threading.Thread(target=servidor, args=())

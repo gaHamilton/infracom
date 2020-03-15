@@ -1,3 +1,5 @@
+import datetime
+import os
 import socket
 import threading
 import hashlib
@@ -30,12 +32,13 @@ def cliente(num, last,lock):
         if(data.decode().__contains__(".")):
             fTipo = data.decode()
             break
-    print("TIPO:",fTipo)
+    # print("TIPO:",fTipo)
     finT=0
 
     hashR=""
     sha1=hashlib.sha1()
-    with open('Doc/received_file'+str(num)+fTipo, 'wb') as f:
+    fileName="Doc/received_file"+str(num)+fTipo
+    with open(fileName, 'wb') as f:
         mensajesConsola.append("Recibiendo archivo")
         with lock:
             while True:
@@ -43,36 +46,28 @@ def cliente(num, last,lock):
                 i+=1
                 data = s.recv(BUFF)
 
-                # print('data=%s', (data))
                 if not data:
-                    # lock.release()
                     break
 
                 elif (data.__contains__(b"FINM")):
                     val=data.find(b"FINM")
-                    # print(data[0:val])
-                    # print("--------------------")
-                    # print(data[val:])
                     sha1.update(data[:val])
                     hashR = data[val:]
                     finT=time.time()
 
-                    # lock.release()
                     break
                 else:
                     sha1.update(data)
                     f.write(data)
+    f.close()
     mensajesConsola.append("Archivo recibido")
+
+    # Numero de paquetes recibidos
     datosLog+=str(i)+"/"
 
-    # print("Paquetes leidos: ",i)
-    # print(hashR[4:])
     hashR=hashR[4:].decode()
     mensajesConsola.append("Cliente"+str(num)+"Hash Recibido: \n"+str(hashR))
     mensajesConsola.append("Cliente"+str(num)+"Hash Calculado:\n"+str(sha1.hexdigest()))
-
-    # print("Son iguales?\n",hashR==sha1.hexdigest())
-    f.close()
 
     notif=""
     if(hashR==sha1.hexdigest()):
@@ -84,7 +79,8 @@ def cliente(num, last,lock):
 
     # Notificacion de recepcion
     mensajesConsola.append("Envio de notificacion")
-    datosLog+="Cliente " + str(num) + " termino con estado de " + notif+"/"
+    recepcion="Cliente " + str(num) + " termino con estado de " + notif
+    datosLog+=recepcion+"/"
 
     # Envio de tiempo
     datosLog+=str(finT)+"/"
@@ -99,14 +95,49 @@ def cliente(num, last,lock):
 
     # print(datosLog)
     s.send(datosLog.encode())
+    logDatosCliente(recepcion,i,hashR,sha1.hexdigest(),fileName)
+
     s.close()
     mensajesConsola.append('FIN')
     for i in mensajesConsola:
         print(i)
 
+def createLog():
+    print("Creando log")
+
+    # Fecha y hora --creacion log
+    fecha = datetime.datetime.now()
+
+    logName = "LogsCliente/logC" + str(fecha.timestamp()) + ".txt"
+    logFile = open(logName, "a")
+    logFile.write("Fecha: " + str(fecha) + "\n")
+
+    logFile.write("----------------------------------------\n")
+
+    logFile.close()
+    return logName
 
 cantidadCliente=25
 lock=threading.Lock()
+file=createLog()
+
+def logDatosCliente(recepcion, numPaqRecv,hashR, hash,fileName):
+
+    with lock:
+        # # Nombre del archivo y tamanio
+        fileN=fileName.split("/")
+        fileN = "Nombre del archivo "+fileN[1]+"\n"
+        fSize = os.path.getsize(fileName)
+        size="Tamanio del archivo: " + str(fSize) + " bytes\n"
+
+        paquetesR="Numero de paquetes recibidos por el cliente:" + str(numPaqRecv) + "\n"
+        separador="\n---------------------------------------\n"
+        hash="\nHASH calculado en el cliente: \n"+hash
+        hashR="\nHASH calculado en el servidor: \n"+hashR
+        logFile = open(file, "a")
+        logFile.write(fileN+size+recepcion+"\n"+paquetesR+hashR+hash+separador )
+        logFile.close()
+
 for i in range(cantidadCliente):
     if(i==cantidadCliente-1):
         t = threading.Thread(target=cliente,args=(i, True,lock))

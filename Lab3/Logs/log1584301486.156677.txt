@@ -1,0 +1,229 @@
+Fecha: 2020-03-15 14:44:46.156677
+Nombre del archivo: Prueba4.mp4
+Tamanio del archivo: 99926649 bytes
+----------------------------------------
+Cliente 1 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 2.8095500469207764 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 24 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 5.249555826187134 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 20 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 7.679997205734253 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 9 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 10.14975357055664 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 19 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 12.609604835510254 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 3 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 14.809754848480225 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 12 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 17.12482476234436 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 0 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 19.389686584472656 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 15 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 21.84969162940979 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 18 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 24.129852533340454 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 8 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 26.259714603424072 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 2 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 28.409518003463745 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 22 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 30.59972620010376 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 10 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 32.49989724159241 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 21 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 34.75956583023071 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 7 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 37.08964562416077 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 13 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 39.07988882064819 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 11 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48793
+Tiempo: 41.17991399765015 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 16 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 43.5495719909668 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 14 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 45.88974928855896 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 5 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 48.08950090408325 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 23 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 50.35954451560974 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 17 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48793
+Tiempo: 52.32980799674988 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 6 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 54.38989329338074 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
+Cliente 4 termino con estado de Exito
+Numero de paquetes enviados por el servidor:48794
+Numero de paquetes recibidos por el cliente:48794
+Tiempo: 56.52968645095825 segundos
+HASH calculado en el cliente
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+---------------------------------------
