@@ -5,7 +5,7 @@ import time
 
 BUFF=1024
 
-def cliente(num):
+def cliente(num, last):
     print("Cliente #",num)
     s = socket.socket()             # Create a socket object
     host = "localhost"  #Ip address that the TCPServer  is there
@@ -66,24 +66,29 @@ def cliente(num):
         print("El Hash del archivo recibido es diferente del calculado")
 
     # Notificacion de recepcion
-    s.send(("Client " + str(num) + " termino con estado de " + notif).encode())
+    s.send(("Cliente " + str(num) + " termino con estado de " + notif).encode())
 
     # Envio de tiempo
     print(str(finT))
     s.send(str(finT).encode())
 
+    # Si es el ultimo, mandar fin para el servidor tambien
+    if(last):
+        s.send("TERMINATE".encode())
+    else:
+        s.send("CONTINUE".encode())
+
     s.close()
     print('FIN')
 
 
-t1 = threading.Thread(target=cliente(1))
-# t2 = threading.Thread(target=cliente(2))
 
-# starting thread 1
-t1.start()
-# starting thread 2
-# t2.start()
+for i in range(26):
+    if(i==25):
+        t = threading.Thread(target=cliente(i, True))
+        t.start()
+    else:
+        t = threading.Thread(target=cliente(i, False))
+        t.start()
 
-
-# both threads completely executed
 print("Done!")

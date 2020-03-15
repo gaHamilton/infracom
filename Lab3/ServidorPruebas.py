@@ -1,6 +1,8 @@
 import socket
 import hashlib
 import time
+import datetime
+import os
 
 global numClientesC
 BUFF=1024
@@ -32,6 +34,45 @@ fileName=tup[0]
 numClientes=tup[2]
 fileT=tup[1]
 numClientesC=0
+
+def createLog():
+    print("Creando log")
+
+    # Fecha y hora --creacion log
+    fecha = datetime.datetime.now()
+
+    logName="Logs/log" + str(fecha.timestamp())+ ".txt"
+    logFile = open(logName, "w")
+    logFile.write("Fecha: "+str(fecha)+"\n")
+
+    # Nombre del archivo y tamanio
+    fileN=fileName.split("/")
+    fileN=fileN[1]
+
+    logFile.write("Nombre del archivo: "+fileN+"\n")
+
+    fSize=os.path.getsize(fileName)
+
+    logFile.write("Tamanio del archivo: "+str(fSize)+" bytes\n")
+    logFile.write("----------------------------------------\n")
+
+    return logFile,logName
+
+
+logFile,logName=createLog()
+
+
+def logDatosCliente(recepcion, tiempo):
+    # Identifique cada cliente al que se realiza la transferencia de archivos Identifique si la entrega del archivo
+    # fue exitosa o no. Tome  los  tiempos  de  transferencia  a  cada  uno  de  los  clientes
+
+    # TODO falta algo de paquetes
+
+    logFile=open(logName, "a")
+    logFile.write(recepcion+"\n")
+    logFile.write("Tiempo: "+str(tiempo)+" segundos\n")
+    logFile.write("----------------------------------------\n")
+
 
 print('Server listening....')
 
@@ -76,12 +117,30 @@ while True:
 
         f.close()
 
+        # Notificacion de recepcion
         data=conn.recv(BUFF)
-        print(data.decode())
+        recepcion=data.decode()
+        print(recepcion)
+
+        # Notificacion de tiempo
         data = conn.recv(BUFF)
         finT=float(data.decode())
-        print("Tiempo total:",finT-inicioT, "Segundos")
+        totalT=finT-inicioT
+        print("Tiempo total:",totalT, "Segundos")
+
+        logDatosCliente(recepcion,totalT)
+
         print('Fin envio')
         numClientesC -= 1
         print("Numero Clientes Conectados: ", numClientesC)
+
+        # Notificacion de fin de cliente o no
+        data=conn.recv(BUFF)
+        terminS=data.decode()
+        print("Mensaje del cliente: ",terminS)
+
         conn.close()
+        logFile.close()
+        if(terminS=="TERMINATE"):
+            break
+print("Fin Servidor")
