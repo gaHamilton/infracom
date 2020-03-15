@@ -1,0 +1,114 @@
+Fecha: 2020-03-15 01:54:32.769170
+Nombre del archivo: Prueba3.pdf
+Tamanio del archivo: 11743025 bytes
+----------------------------------------
+Cliente 0 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.733116865158081 segundos
+----------------------------------------
+Cliente 2 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:CONTINUE
+Tiempo: 0.4388084411621094 segundos
+----------------------------------------
+Cliente 4 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469CONTINUE
+Tiempo: 0.3697960376739502 segundos
+----------------------------------------
+Cliente 5 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469CONTINUE
+Tiempo: 0.4010164737701416 segundos
+----------------------------------------
+Cliente 6 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469CONTINUE
+Tiempo: 0.48569774627685547 segundos
+----------------------------------------
+Cliente 8 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.4791593551635742 segundos
+----------------------------------------
+Cliente 9 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.43880701065063477 segundos
+----------------------------------------
+Cliente 10 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.501279354095459 segundos
+----------------------------------------
+Cliente 11 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.4322659969329834 segundos
+----------------------------------------
+Cliente 12 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.47005367279052734 segundos
+----------------------------------------
+Cliente 13 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.438586950302124 segundos
+----------------------------------------
+Cliente 14 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11468
+Tiempo: 0.46340465545654297 segundos
+----------------------------------------
+Cliente 15 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11468
+Tiempo: 0.4322779178619385 segundos
+----------------------------------------
+Cliente 16 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.6015543937683105 segundos
+----------------------------------------
+Cliente 17 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.5390806198120117 segundos
+----------------------------------------
+Cliente 19 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.47917842864990234 segundos
+----------------------------------------
+Cliente 18 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.5013172626495361 segundos
+----------------------------------------
+Cliente 20 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.4231436252593994 segundos
+----------------------------------------
+Cliente 21 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.5638885498046875 segundos
+----------------------------------------
+Cliente 22 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.5169167518615723 segundos
+----------------------------------------
+Cliente 23 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.5703248977661133 segundos
+----------------------------------------
+Cliente 24 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.5547175407409668 segundos
+----------------------------------------
