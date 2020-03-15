@@ -3,10 +3,14 @@ import threading
 import hashlib
 import time
 
-BUFF=1024
+BUFF=2048
+lock= threading.Lock()
 
 def cliente(num, last,lock):
-    print("Cliente #",num)
+    datosLog=""
+    mensajesConsola=[]
+    mensajesConsola.append("Cliente #"+str(num))
+
     # TCP ------> socket.AF_INET, socket.SOCK_STREAM
     # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -16,48 +20,56 @@ def cliente(num, last,lock):
     i=0
 
     s.connect((host, port))
+    mensajesConsola.append("Conexion con el servidor")
     s.send("READY".encode())
-    print("Listo para recibir")
+    mensajesConsola.append("Listo para recibir")
 
-    data = s.recv(BUFF)
-    fTipo=data.decode()
-
+    fTipo=""
+    while True:
+        data = s.recv(BUFF)
+        if(data.decode().__contains__(".")):
+            fTipo = data.decode()
+            break
+    print("TIPO:",fTipo)
     finT=0
 
     hashR=""
     sha1=hashlib.sha1()
     with open('Doc/received_file'+str(num)+fTipo, 'wb') as f:
-        # print("Starting to write")
-        # lock.acquire()
-        while True:
-            # print('receiving data...',i)
-            i+=1
-            data = s.recv(BUFF)
+        mensajesConsola.append("Recibiendo archivo")
+        with lock:
+            while True:
+                # print('receiving data...',i)
+                i+=1
+                data = s.recv(BUFF)
 
-            # print('data=%s', (data))
-            if not data:
-                # lock.release()
-                break
+                # print('data=%s', (data))
+                if not data:
+                    # lock.release()
+                    break
 
-            elif (data.__contains__(b"FINM")):
-                val=data.find(b"FINM")
-                # print(data[0:val])
-                # print("--------------------")
-                # print(data[val:])
-                sha1.update(data[:val])
-                hashR = data[val:]
-                finT=time.time()
+                elif (data.__contains__(b"FINM")):
+                    val=data.find(b"FINM")
+                    # print(data[0:val])
+                    # print("--------------------")
+                    # print(data[val:])
+                    sha1.update(data[:val])
+                    hashR = data[val:]
+                    finT=time.time()
 
-                # lock.release()
-                break
-            else:
-                sha1.update(data)
-                f.write(data)
+                    # lock.release()
+                    break
+                else:
+                    sha1.update(data)
+                    f.write(data)
+    mensajesConsola.append("Archivo recibido")
+    datosLog+=str(i)+"/"
 
     # print("Paquetes leidos: ",i)
+    # print(hashR[4:])
     hashR=hashR[4:].decode()
-    # print("Cliente",num,"Hash Recibido: \n",hashR)
-    # print("Cliente",num,"Hash Calculado:\n",sha1.hexdigest())
+    mensajesConsola.append("Cliente"+str(num)+"Hash Recibido: \n"+str(hashR))
+    mensajesConsola.append("Cliente"+str(num)+"Hash Calculado:\n"+str(sha1.hexdigest()))
 
     # print("Son iguales?\n",hashR==sha1.hexdigest())
     f.close()
@@ -65,30 +77,30 @@ def cliente(num, last,lock):
     notif=""
     if(hashR==sha1.hexdigest()):
         notif="Exito"
-        print("Archivo recibido Exitosamente")
+        mensajesConsola.append("Archivo recibido Exitosamente")
     else:
         notif = "Error"
-        print("El Hash del archivo recibido es diferente del calculado")
+        mensajesConsola.append("El Hash del archivo recibido es diferente del calculado")
 
     # Notificacion de recepcion
-    s.send(("Cliente " + str(num) + " termino con estado de " + notif).encode())
+    mensajesConsola.append("Envio de notificacion")
+    datosLog+="Cliente " + str(num) + " termino con estado de " + notif+"/"
 
     # Envio de tiempo
-    # Envio de tiempo
-    s.send(str(finT).encode())
-
-    # Envio numero de paquetes recibidos
-    s.send(str(i).encode())
+    datosLog+=str(finT)+"/"
 
     # Si es el ultimo, mandar fin para el servidor tambien
     if(last):
-        s.send("TERMINATE".encode())
+        datosLog+="TERMINATE/"
     else:
-        s.send("CONTINUE".encode())
+        datosLog+="CONTINUE/"
 
-
+    # print(datosLog)
+    s.send(datosLog.encode())
     s.close()
-    print('FIN')
+    mensajesConsola.append('FIN')
+    for i in mensajesConsola:
+        print(i)
 
 
 cantidadCliente=25
@@ -101,4 +113,4 @@ for i in range(cantidadCliente):
         t = threading.Thread(target=cliente,args=(i, False,lock))
         t.start()
 
-print("FIN")
+# print("FIN")

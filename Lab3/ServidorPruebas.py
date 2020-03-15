@@ -4,10 +4,8 @@ import threading
 import time
 import datetime
 import os
-from multiprocessing import Process
 
-global numClientesC
-
+lock= threading.Lock()
 
 def pedirDatos():
     fileName = ""
@@ -30,27 +28,34 @@ fileName = tup[0]
 numClientes = tup[2]
 fileT = tup[1]
 numClientesC=0
+atender=False
 
-def servidor(lock):
+def servidor():
     global numClientesC
+    global atender
 
-    print("Server thread listening....")
+    print("Server listening....")
 
     while True:
         conn, addr = s.accept()  # Establish connection with client.
+
         numClientesC += 1
         print("Numero Clientes Conectados: ", numClientesC)
         # print('Got connection from', addr)
         data = conn.recv(BUFF)
         print('Server received', data.decode())
-
-        sha1 = hashlib.sha1()
-        if (numClientesC >= numClientes):
+        if(data.decode()=="READY"):
+            sha1 = hashlib.sha1()
+            while True:
+                if (numClientesC >= numClientes):
+                    print("Starting to send")
+                    break
+            atender=True
             i = 0
             conn.send(fileT.encode())
             # print("Tipo del archivo a enviar: ",fileT.encode())
 
-            # lock.acquire()
+
             inicioT = time.time()
             with open(fileName, 'rb') as f:
                 # print("Starting to send")
@@ -61,53 +66,48 @@ def servidor(lock):
                     # print('data=%s', (data))
 
                     if not data:
-                        # lock.release()
                         break
                     sha1.update(data)
                     # print("Sha Modificado :",i-1,"Veces")
 
                     conn.send(data)
-            # print("Paquetes enviados: ",i)
-            # print("Hash Calculado:\n",sha1.hexdigest())
+                    # print("Paquetes enviados: ",i)
+                    # print("Hash Calculado:\n",sha1.hexdigest())
+                print("Archivo Enviado")
+                # Envio de Hash
+                has = str(sha1.hexdigest())
+                conn.send(("FINM" + has).encode())
 
-            # Envio de Hash
-            has = str(sha1.hexdigest())
-            conn.send(("FINM" + has).encode())
+                f.close()
 
-            f.close()
+                # Notificacion de recepcion
+                data = conn.recv(BUFF)
+                datosCiente = data.decode().split("/")
+                recepcion = datosCiente[1]
+                print(recepcion)
 
-            # Notificacion de recepcion
-            data = conn.recv(BUFF)
-            recepcion = data.decode()
-            print(recepcion)
+                # Notificacion de tiempo
+                finT = float(datosCiente[2])
+                totalT = finT - inicioT
+                # print("Tiempo total:",totalT, "Segundos")
 
-            # Notificacion de tiempo
-            data = conn.recv(BUFF)
-            finT = float(data.decode())
-            totalT = finT - inicioT
-            # print("Tiempo total:",totalT, "Segundos")
+                # Numero de paquetes recibidos por el cliente
+                paqRecv = datosCiente[0]
 
-            # Numero de paquetes recibidos por el cliente
-            data = conn.recv(BUFF)
-            paqRecv = data.decode()
+                logDatosCliente(recepcion, totalT, i, paqRecv)
 
+                print('Fin envio')
+                numClientesC -= 1
+                print("Numero Clientes Conectados: ", numClientesC)
 
-            logDatosCliente(recepcion, totalT, i, paqRecv)
+                # Notificacion de fin de cliente o no
+                terminS = datosCiente[3]
+                # print("Mensaje del cliente: ", terminS)
 
-
-            print('Fin envio')
-            numClientesC -= 1
-            print("Numero Clientes Conectados: ", numClientesC)
-
-            # Notificacion de fin de cliente o no
-            data = conn.recv(BUFF)
-            terminS = data.decode()
-            # print("Mensaje del cliente: ", terminS)
-
-            conn.close()
-            if (terminS == "TERMINATE"):
-                print(terminS)
-                break
+                conn.close()
+                if (terminS == "TERMINATE"):
+                    print(terminS)
+                    break
     print("Fin Servidor")
 
 
@@ -144,19 +144,18 @@ def logDatosCliente(recepcion, tiempo, numPaqEnv, numPaqRecv):
     # Identifique cada cliente al que se realiza la transferencia de archivos Identifique si la entrega del archivo
     # fue exitosa o no. Tome  los  tiempos  de  transferencia  a  cada  uno  de  los  clientes
 
-    # TODO falta algo de paquetes
-
-    paquetesE="Numero de paquetes enviados por el servidor:" + str(numPaqEnv) + "\n"
-    paquetesR="Numero de paquetes recibidos por el cliente:" + str(numPaqRecv) + "\n"
-    tiempoT="Tiempo: " + str(tiempo) + " segundos\n"
-    separador="----------------------------------------\n"
-    logFile = open(logName, "a")
-    logFile.write(recepcion+"\n"+paquetesE+paquetesR+tiempoT+separador )
-    logFile.close()
+    with lock:
+        paquetesE="Numero de paquetes enviados por el servidor:" + str(numPaqEnv) + "\n"
+        paquetesR="Numero de paquetes recibidos por el cliente:" + str(numPaqRecv) + "\n"
+        tiempoT="Tiempo: " + str(tiempo) + " segundos\n"
+        separador="----------------------------------------\n"
+        logFile = open(logName, "a")
+        logFile.write(recepcion+"\n"+paquetesE+paquetesR+tiempoT+separador )
+        logFile.close()
 
 # Puerto, buffer
 port = 9999
-BUFF = 1024
+BUFF = 2048
 
 # TCP ------> socket.AF_INET, socket.SOCK_STREAM
 # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
@@ -167,20 +166,24 @@ s.bind((host, port))
 # Puede mandarse por parametro el numero de conexiones que se pueden aceptar antes de rechazar nuevas conexiones
 s.listen(25)
 
-lock=threading.Lock()
+# servidor()
 
-t1 = threading.Thread(target=servidor, args=(lock,))
-t2 = threading.Thread(target=servidor, args=(lock,))
-t3 = threading.Thread(target=servidor, args=(lock,))
-t4 = threading.Thread(target=servidor, args=(lock,))
+# t1 = threading.Thread(target=servidor, args=())
+# t2 = threading.Thread(target=servidor, args=())
+# t3 = threading.Thread(target=servidor, args=())
+# t4 = threading.Thread(target=servidor, args=())
 
-t1.start()
-t2.start()
-t3.start()
-t4.start()
+# t1.start()
+# t2.start()
+# t3.start()
+# t4.start()
 
-t1.join()
-t2.join()
-t3.join()
-t4.join()
+# t1.join()
+# t2.join()
+# t3.join()
+# t4.join()
+
+for i in range(25):
+    t= threading.Thread(target=servidor, args=())
+    t.start()
 

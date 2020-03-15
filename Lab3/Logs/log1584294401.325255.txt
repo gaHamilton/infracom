@@ -1,0 +1,129 @@
+Fecha: 2020-03-15 12:46:41.325255
+Nombre del archivo: Prueba3.pdf
+Tamanio del archivo: 11743025 bytes
+----------------------------------------
+Cliente 1 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 0.7500503063201904 segundos
+----------------------------------------
+Cliente 5 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 0.9802765846252441 segundos
+----------------------------------------
+Cliente 6 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 1.0802407264709473 segundos
+----------------------------------------
+Cliente 23 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 1.3801360130310059 segundos
+----------------------------------------
+Cliente 7 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 1.4801664352416992 segundos
+----------------------------------------
+Cliente 8 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 1.579958438873291 segundos
+----------------------------------------
+Cliente 16 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 1.7799487113952637 segundos
+----------------------------------------
+Cliente 12 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 2.060406446456909 segundos
+----------------------------------------
+Cliente 0 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 2.1600182056427 segundos
+----------------------------------------
+Cliente 2 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 2.3403267860412598 segundos
+----------------------------------------
+Cliente 24 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 2.410060405731201 segundos
+----------------------------------------
+Cliente 9 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 2.4802825450897217 segundos
+----------------------------------------
+Cliente 10 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 2.6804373264312744 segundos
+----------------------------------------
+Cliente 21 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 2.750192880630493 segundos
+----------------------------------------
+Cliente 3 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 2.860175848007202 segundos
+----------------------------------------
+Cliente 19 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 2.94032621383667 segundos
+----------------------------------------
+Cliente 17 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 3.0502665042877197 segundos
+----------------------------------------
+Cliente 20 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 3.215381622314453 segundos
+----------------------------------------
+Cliente 22 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 3.480175733566284 segundos
+----------------------------------------
+Cliente 15 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 3.5650596618652344 segundos
+----------------------------------------
+Cliente 14 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 3.7503468990325928 segundos
+----------------------------------------
+Cliente 13 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 3.9302902221679688 segundos
+----------------------------------------
+Cliente 4 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 4.000410795211792 segundos
+----------------------------------------
+Cliente 18 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 4.170182228088379 segundos
+----------------------------------------
+Cliente 11 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 4.429961681365967 segundos
+----------------------------------------
