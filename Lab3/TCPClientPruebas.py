@@ -16,6 +16,7 @@ def cliente(num, last,lock):
     # TCP ------> socket.AF_INET, socket.SOCK_STREAM
     # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # host = "34.228.233.12"
     host = "localhost"
     port = 9999
 
@@ -29,11 +30,12 @@ def cliente(num, last,lock):
     fTipo=""
     while True:
         data = s.recv(BUFF)
-        if(data.decode().__contains__(".")):
-            fTipo = data.decode()
+        if(data.__contains__(b".")):
+            fTipo = data
             break
     # print("TIPO:",fTipo)
     finT=0
+    print("FTIPO AAAAAAAAAAAAAAAAAAAA:  ",fTipo)
 
     hashR=""
     sha1=hashlib.sha1()

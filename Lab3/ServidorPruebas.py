@@ -54,6 +54,7 @@ def servidor():
             conn.send(fileT.encode())
             # print("Tipo del archivo a enviar: ",fileT.encode())
 
+            time.sleep(0.1)
 
             inicioT = time.time()
             with open(fileName, 'rb') as f:
