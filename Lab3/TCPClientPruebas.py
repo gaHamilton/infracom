@@ -98,10 +98,10 @@ def cliente(num, last,lock):
     s.send(datosLog.encode())
     logDatosCliente(recepcion,i,hashR,sha1.hexdigest(),fileName)
 
-    s.close()
-    mensajesConsola.append('FIN')
     for i in mensajesConsola:
         print(i)
+
+    s.close()
 
 def createLog():
     print("Creando log")

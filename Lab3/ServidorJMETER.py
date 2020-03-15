@@ -1,73 +1,78 @@
 import socket
 import hashlib
+import threading
 import time
+import datetime
+import os
 
-global numClientesC
-BUFF=1024
-
-port = 9999
-s = socket.socket()
-host = "localhost"
-s.bind((host, port))
-s.listen(25)
+lock= threading.Lock()
 
 def pedirDatos():
     fileName = ""
     fileT = ""
-    entr=int(input("Ingrese archivo que quiere enviar 1 (100 MB) o 2 (250MB)"))
-    if(entr==1):
-        fileName="Doc/Prueba4.mp4"
-        fileT=".mp4"
-    elif(entr==2):
-        # TODO aun no hay un archivo de 250 MB, remplazado por uno de prueba de 11MB
-        fileName="Doc/Prueba2.docx"
-        fileT=".pdf"
-    entr = int(input("Ingrese el numero de clientes en simultaneo a enviar el archivo"))
-    numClientes=entr
-    return fileName,fileT,numClientes
+    entr = int(input("Ingrese archivo que quiere enviar 1 (100 MB) o 2 (250MB)"))
+    if (entr == 1):
+        fileName = "Doc/Prueba4.mp4"
+        fileT = ".mp4"
+    elif (entr == 2):
+        fileName = "Doc/Prueba3.pdf"
+        fileT = ".pdf"
+
+    return fileName
 
 
-tup=pedirDatos()
-fileName=tup[0]
-numClientes=tup[2]
-fileT=tup[1]
+tup = pedirDatos()
+fileName = tup
 numClientesC=0
-# atender=False
+atender=False
 
-print('Server listening....')
+def servidor():
+    global numClientesC
+    global atender
 
-# print(fileName," ----",fileT," ----- ",numClientes)
+    print("Server listening....")
 
-while True:
-    conn, addr = s.accept()     # Establish connection with client.
+    while True:
+        conn, addr = s.accept()  # Establish connection with client.
 
-    print("Cliente entro")
-    numClientesC+=1
-    print("Numero Clientes Conectados: ",numClientesC)
-    # print('Got connection from', addr)
-
-    if(numClientesC>=numClientes ):
-        # atender=True
-        i=0
-        # conn.send(fileT.encode())
-        # print("Tipo del archivo a enviar: ",fileT.encode())
-
-        inicioT = time.time()
-        with open(fileName , 'rb') as f:
-            print('file opened -Read')
+        numClientesC += 1
+        print("Numero Clientes Conectados: ", numClientesC)
+        with open(fileName, 'rb') as f:
+            # print("Starting to send")
             while True:
-                # print('sending data...',i)
-                i += 1
                 data = f.read(BUFF)
-                # print('data=%s', (data))
+
                 if not data:
                     break
+
                 conn.send(data)
 
+            print("Archivo Enviado")
 
-        # print("Paquetes enviados: ",i)
-        f.close()
-        print('Fin envio')
-        numClientesC -= 1
-        print("Numero Clientes Conectados: ", numClientesC)
-        conn.close()
+            f.close()
+
+            print('Fin envio')
+            numClientesC -= 1
+            print("Numero Clientes Conectados: ", numClientesC)
+
+            # print("Mensaje del cliente: ", terminS)
+
+            conn.close()
+
+# Puerto, buffer
+port = 9999
+BUFF = 2048
+
+# TCP ------> socket.AF_INET, socket.SOCK_STREAM
+# UDP ------> socket.AF_INET, socket.SOCK_DGRAM
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+host = ""
+s.bind((host, port))
+
+# Por parametro el numero de conexiones que se pueden aceptar antes de rechazar nuevas conexiones
+s.listen(25)
+
+for i in range(25):
+    t= threading.Thread(target=servidor, args=())
+    t.start()
+
