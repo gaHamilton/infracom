@@ -94,7 +94,8 @@ def servidor():
                 # Numero de paquetes recibidos por el cliente
                 paqRecv = datosCiente[0]
 
-                logDatosCliente(recepcion, totalT, i, paqRecv)
+                hashR=datosCiente[4]
+                logDatosCliente(recepcion, totalT, i, paqRecv,hashR,has)
 
                 print('Fin envio')
                 numClientesC -= 1
@@ -140,7 +141,7 @@ def createLog():
 logName = createLog()
 
 
-def logDatosCliente(recepcion, tiempo, numPaqEnv, numPaqRecv):
+def logDatosCliente(recepcion, tiempo, numPaqEnv, numPaqRecv,hashR, hash):
     # Identifique cada cliente al que se realiza la transferencia de archivos Identifique si la entrega del archivo
     # fue exitosa o no. Tome  los  tiempos  de  transferencia  a  cada  uno  de  los  clientes
 
@@ -148,9 +149,10 @@ def logDatosCliente(recepcion, tiempo, numPaqEnv, numPaqRecv):
         paquetesE="Numero de paquetes enviados por el servidor:" + str(numPaqEnv) + "\n"
         paquetesR="Numero de paquetes recibidos por el cliente:" + str(numPaqRecv) + "\n"
         tiempoT="Tiempo: " + str(tiempo) + " segundos\n"
-        separador="----------------------------------------\n"
+        separador="\n---------------------------------------\n"
+        hash="\nHASH calculado en el servidor: \n"+hash
         logFile = open(logName, "a")
-        logFile.write(recepcion+"\n"+paquetesE+paquetesR+tiempoT+separador )
+        logFile.write(recepcion+"\n"+paquetesE+paquetesR+tiempoT+hashR+hash+separador )
         logFile.close()
 
 # Puerto, buffer

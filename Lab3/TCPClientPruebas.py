@@ -95,6 +95,8 @@ def cliente(num, last,lock):
     else:
         datosLog+="CONTINUE/"
 
+    datosLog+="HASH calculado en el cliente\n"+str(sha1.hexdigest())
+
     # print(datosLog)
     s.send(datosLog.encode())
     s.close()
