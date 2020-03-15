@@ -35,11 +35,10 @@ def cliente(num, last,lock):
             break
     # print("TIPO:",fTipo)
     finT=0
-    print("FTIPO AAAAAAAAAAAAAAAAAAAA:  ",fTipo)
 
     hashR=""
     sha1=hashlib.sha1()
-    fileName="Doc/received_file"+str(num)+fTipo
+    fileName="Doc/received_file"+str(num)+fTipo.decode()
     with open(fileName, 'wb') as f:
         mensajesConsola.append("Recibiendo archivo")
         with lock:
