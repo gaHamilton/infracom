@@ -9,14 +9,11 @@ lock= threading.Lock()
 
 def pedirDatos():
     fileName = ""
-    fileT = ""
     entr = int(input("Ingrese archivo que quiere enviar 1 (100 MB) o 2 (250MB)"))
     if (entr == 1):
         fileName = "Doc/Prueba4.mp4"
-        fileT = ".mp4"
     elif (entr == 2):
-        fileName = "Doc/Prueba3.pdf"
-        fileT = ".pdf"
+        fileName = "Doc/Prueba.txt"
 
     return fileName
 
@@ -28,8 +25,7 @@ atender=False
 
 def servidor():
     global numClientesC
-    global atender
-
+    global fileName
     print("Server listening....")
 
     while True:
@@ -38,24 +34,16 @@ def servidor():
         numClientesC += 1
         print("Numero Clientes Conectados: ", numClientesC)
         with open(fileName, 'rb') as f:
-            # print("Starting to send")
             while True:
                 data = f.read(BUFF)
-
                 if not data:
                     break
-
                 conn.send(data)
-
-            print("Archivo Enviado")
-
             f.close()
 
-            print('Fin envio')
+            print("Fin envio")
             numClientesC -= 1
             print("Numero Clientes Conectados: ", numClientesC)
-
-            # print("Mensaje del cliente: ", terminS)
 
             conn.close()
 
