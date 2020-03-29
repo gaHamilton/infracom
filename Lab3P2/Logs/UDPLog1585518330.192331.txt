@@ -1,0 +1,44 @@
+Fecha: 2020-03-29 16:45:30.192331
+Nombre del archivo: Doc
+Tamanio del archivo: 11743025 bytes
+----------------------------------------
+Cliente 2 termino con estado de Error
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:10911
+Tiempo: 0.6856071949005127 segundos
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Cliente 0 termino con estado de Error
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:10534
+Tiempo: 0.6966009140014648 segundos
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Cliente 1 termino con estado de Error
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:10788
+Tiempo: 0.7205862998962402 segundos
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Cliente 0 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.4307527542114258 segundos
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Cliente 1 termino con estado de Exito
+Numero de paquetes enviados por el servidor:11469
+Numero de paquetes recibidos por el cliente:11469
+Tiempo: 0.4387483596801758 segundos
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------

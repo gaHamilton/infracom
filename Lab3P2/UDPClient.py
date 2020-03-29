@@ -17,10 +17,17 @@ def cliente(num, last, lock):
     # TCP ------> socket.AF_INET, socket.SOCK_STREAM
     # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    HostPort = ("127.0.0.1", 20001)
+    host="127.0.0.1"
+    HostPort = (host, 20001)
     i = 0
 
-    s.sendto("READY".encode(), HostPort)
+    # Pedir puerto por donde se va a comunicar con el thread del servidor que le es asignado
+    s.sendto("REQUEST".encode(), HostPort)
+    data=s.recvfrom(BUFF)
+    HostPort=(data[1])
+    # print("HOSTPORT--->   ",HostPort)
+    s.sendto("READY".encode(),HostPort)
+
     mensajesConsola.append("Listo para recibir")
     print("Listo para recibir")
     fTipo = ""
@@ -38,23 +45,22 @@ def cliente(num, last, lock):
     with open(fileName, 'wb') as f:
         mensajesConsola.append("Recibiendo archivo")
         print("Recibiendo archivo",num)
-        with lock:
-            while True:
-                # print('receiving data...',i)
-                i += 1
-                data = s.recvfrom(BUFF)
-                if not data[0]:
-                    break
+        while True:
+            # print('receiving data...',i)
+            i += 1
+            data = s.recvfrom(BUFF)
+            if not data[0]:
+                break
 
-                elif (data[0].__contains__(b"FINM")):
-                    val = data[0].find(b"FINM")
-                    sha1.update(data[0][:val])
-                    hashR = data[0][val:]
-                    finT = time.time()
-                    break
-                else:
-                    sha1.update(data[0])
-                    f.write(data[0])
+            elif (data[0].__contains__(b"FINM")):
+                val = data[0].find(b"FINM")
+                sha1.update(data[0][:val])
+                hashR = data[0][val:]
+                finT = time.time()
+                break
+            else:
+                sha1.update(data[0])
+                f.write(data[0])
     f.close()
     mensajesConsola.append("Archivo recibido")
     print("ARCHIVO RECIVIDO",num)
@@ -84,13 +90,13 @@ def cliente(num, last, lock):
     # Si es el ultimo, mandar fin para el servidor tambien
     if (last):
         datosLog += "TERMINATE/"
+        # s.sendto("END".encode(), (host, 20001))
     else:
         datosLog += "CONTINUE/"
 
     # print(datosLog)
-    with lock:
-        s.sendto(datosLog.encode(),HostPort)
-        print("ENVIO DATOS")
+    s.sendto(datosLog.encode(),HostPort)
+    print("ENVIO DATOS")
 
     logDatosCliente(recepcion, i, hashR, sha1.hexdigest(), fileName)
 
@@ -115,7 +121,7 @@ def createLog():
     return logName
 
 
-cantidadCliente = 1
+cantidadCliente = 2
 lock = threading.Lock()
 file = createLog()
 

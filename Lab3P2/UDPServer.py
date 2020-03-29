@@ -76,24 +76,21 @@ def logDatosCliente(recepcion, tiempo, numPaqEnv, numPaqRecv, hashR, hash):
         logFile.close()
 
 
-host = "127.0.0.1"
-port = 20001
+host = ""
 BUFF = 1024
 
-# TCP ------> socket.AF_INET, socket.SOCK_STREAM
-# UDP ------> socket.AF_INET, socket.SOCK_DGRAM
-s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
-
-# Bind to address and ip
-
-s.bind((host, port))
-
-print("UDP server up and listening")
-
-
-def servidor():
+def servidor(port1,dir):
     global numClientesC
     global atender
+    port=20001+port1
+    # TCP ------> socket.AF_INET, socket.SOCK_STREAM
+    # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
+    s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+    # Bind to address and ip
+    s.bind((host, port))
+    s.sendto(str(port).encode(),dir)
+    print("UDP server up and listening at port ",port)
 
     while True:
         data = s.recvfrom(BUFF)
@@ -103,9 +100,8 @@ def servidor():
         print('Server received', mess.decode())
 
         if (mess.decode() == "READY"):
-            with lock:
-                numClientesC += 1
-                print("Numero Clientes Conectados: ", numClientesC)
+            numClientesC += 1
+            print("Numero Clientes Conectados: ", numClientesC)
             sha1 = hashlib.sha1()
             while True:
                 if (numClientesC >= numClientes or atender):
@@ -136,8 +132,8 @@ def servidor():
                 s.sendto(("FINM" + has).encode(),dir)
                 f.close()
 
-                with lock:
-                    data = s.recvfrom(BUFF)
+
+                data = s.recvfrom(BUFF)
                 # Notificacion de recepcion
                 datosCiente = data[0].decode().split("/")
                 recepcion = datosCiente[1]
@@ -155,9 +151,8 @@ def servidor():
                 logDatosCliente(recepcion, totalT, i, paqRecv, hashR, has)
 
                 print('Fin envio')
-                with lock:
-                    numClientesC -= 1
-                    print("Numero Clientes Conectados: ", numClientesC)
+                numClientesC -= 1
+                print("Numero Clientes Conectados: ", numClientesC)
 
                 # Notificacion de fin de cliente o no
                 terminS = datosCiente[3]
@@ -166,9 +161,35 @@ def servidor():
                 if (terminS == "TERMINATE"):
                     print(terminS)
                     s.close()
+                    print("Fin Servidor en puerto ",port)
                     break
-            print("Fin Servidor")
 
-for i in range(1):
-    t= threading.Thread(target=servidor, args=())
-    t.start()
+
+
+port1=20001
+# TCP ------> socket.AF_INET, socket.SOCK_STREAM
+# UDP ------> socket.AF_INET, socket.SOCK_DGRAM
+s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+# Bind to address and ip
+s.bind((host, port1))
+i=1
+while True:
+    data = s.recvfrom(BUFF)
+    mess = data[0]
+    dir = data[1]
+
+    if (mess.decode() == "REQUEST"):
+        if(i==25):
+            i=0
+        t = threading.Thread(target=servidor, args=(i,dir))
+        i += 1
+        t.start()
+
+    if (mess.decode() == "END"):
+        print("FIN CONEXIONES")
+        break
+
+# for i in range(1):
+#     t= threading.Thread(target=servidor, args=(i))
+#     t.start()
