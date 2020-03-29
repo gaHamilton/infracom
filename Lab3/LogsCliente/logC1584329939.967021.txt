@@ -1,0 +1,32 @@
+Fecha: 2020-03-15 22:38:59.967021
+----------------------------------------
+Nombre del archivo received_file0.pdf
+Tamanio del archivo: 11743025 bytes
+Cliente 0 termino con estado de Exito
+Numero de paquetes recibidos por el cliente:5735
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+HASH calculado en el cliente: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Nombre del archivo received_file1.pdf
+Tamanio del archivo: 11741184 bytes
+Cliente 1 termino con estado de Exito
+Numero de paquetes recibidos por el cliente:5734
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+HASH calculado en el cliente: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Nombre del archivo received_file2.pdf
+Tamanio del archivo: 11741184 bytes
+Cliente 2 termino con estado de Exito
+Numero de paquetes recibidos por el cliente:5734
+
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+HASH calculado en el cliente: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------

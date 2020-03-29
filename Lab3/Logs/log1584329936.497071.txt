@@ -1,0 +1,31 @@
+Fecha: 2020-03-15 22:38:56.497071
+Nombre del archivo: Prueba3.pdf
+Tamanio del archivo: 11743025 bytes
+----------------------------------------
+Cliente 0 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5735
+Tiempo: 0.22973155975341797 segundos
+HASH calculado en el cliente
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Cliente 1 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 0.2852146625518799 segundos
+HASH calculado en el cliente
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------
+Cliente 2 termino con estado de Exito
+Numero de paquetes enviados por el servidor:5735
+Numero de paquetes recibidos por el cliente:5734
+Tiempo: 0.3299560546875 segundos
+HASH calculado en el cliente
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+HASH calculado en el servidor: 
+9ad2a1c5607505ab9a871adc7b7adf6e9fcfa8af
+---------------------------------------

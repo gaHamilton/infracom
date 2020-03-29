@@ -11,9 +11,9 @@ def pedirDatos():
     fileName = ""
     entr = int(input("Ingrese archivo que quiere enviar 1 (100 MB) o 2 (250MB)"))
     if (entr == 1):
-        fileName = "Doc/Prueba4.mp4"
+        fileName = "../Doc/Prueba4.mp4"
     elif (entr == 2):
-        fileName = "Doc/Prueba.txt"
+        fileName = "../Doc/Prueba.txt"
 
     return fileName
 
@@ -58,7 +58,7 @@ host = ""
 s.bind((host, port))
 
 # Por parametro el numero de conexiones que se pueden aceptar antes de rechazar nuevas conexiones
-s.listen(25)
+s.listen()
 
 for i in range(25):
     t= threading.Thread(target=servidor, args=())

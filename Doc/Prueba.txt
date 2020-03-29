@@ -1,0 +1,4 @@
+numero datos 5678
+Valor  2 = 1062091905
+Valor  21 = 1046401057
+Valor  43 = 1049962955

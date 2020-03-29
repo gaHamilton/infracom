@@ -12,10 +12,14 @@ def pedirDatos():
     fileT = ""
     entr = int(input("Ingrese archivo que quiere enviar 1 (100 MB) o 2 (250MB)"))
     if (entr == 1):
-        fileName = "Doc/Prueba4.mp4"
+        fileName = "../Doc/Prueba4.mp4"
         fileT = ".mp4"
     elif (entr == 2):
-        fileName = "Doc/Prueba3.pdf"
+        fileName = "../Doc/Prueba5.mp4"
+        fileT = ".mp4"
+    elif (entr == 3):
+        print("EASTER EGG .... ok no, solo es para hacer pruebas mas rapido .... archivo de 11MB")
+        fileName = "../Doc/Prueba3.pdf"
         fileT = ".pdf"
     entr = int(input("Ingrese el numero de clientes en simultaneo a enviar el archivo"))
     numClientes = entr
@@ -165,4 +169,3 @@ s.listen(25)
 for i in range(25):
     t= threading.Thread(target=servidor, args=())
     t.start()
-
