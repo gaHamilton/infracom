@@ -180,7 +180,7 @@ while True:
     dir = data[1]
 
     if (mess.decode() == "REQUEST"):
-        if(i==25):
+        if(i==26):
             i=0
         t = threading.Thread(target=servidor, args=(i,dir))
         i += 1
@@ -189,7 +189,3 @@ while True:
     if (mess.decode() == "END"):
         print("FIN CONEXIONES")
         break
-
-# for i in range(1):
-#     t= threading.Thread(target=servidor, args=(i))
-#     t.start()

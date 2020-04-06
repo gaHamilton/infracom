@@ -87,12 +87,9 @@ def cliente(num, last, lock):
     # Envio de tiempo
     datosLog += str(finT) + "/"
 
-    # Si es el ultimo, mandar fin para el servidor tambien
-    if (last):
-        datosLog += "TERMINATE/"
-        # s.sendto("END".encode(), (host, 20001))
-    else:
-        datosLog += "CONTINUE/"
+    # Mandar Terminate para terminar el servidor en el puerto en que se encuentre
+    datosLog += "TERMINATE/"
+
 
     # print(datosLog)
     s.sendto(datosLog.encode(),HostPort)
