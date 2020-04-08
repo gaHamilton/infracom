@@ -120,7 +120,7 @@ def createLog():
     return logName
 
 
-cantidadCliente = 2
+cantidadCliente = 25
 lock = threading.Lock()
 file = createLog()
 

@@ -1,0 +1,252 @@
+Fecha: 2020-04-08 00:57:14.390422
+----------------------------------------
+Nombre del archivo received_file15.mp4
+Tamanio del archivo: 85483129 bytes
+Cliente 15 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83481
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+b7f94fc436e4d597d0b6d367d09af131b2966c3b
+---------------------------------------
+Nombre del archivo received_file1.mp4
+Tamanio del archivo: 88224377 bytes
+Cliente 1 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86158
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+6163909e2abeb75440d47f31587aa9b374ee27de
+---------------------------------------
+Nombre del archivo received_file10.mp4
+Tamanio del archivo: 88639097 bytes
+Cliente 10 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86563
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+52dd6345c14ef18955ad36070818e40797fc57cd
+---------------------------------------
+Nombre del archivo received_file9.mp4
+Tamanio del archivo: 87205497 bytes
+Cliente 9 termino con estado de Error
+Numero de paquetes recibidos por el cliente:85163
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+32fab153c83a174741c7f35721d74488540d40f0
+---------------------------------------
+Nombre del archivo received_file21.mp4
+Tamanio del archivo: 83995257 bytes
+Cliente 21 termino con estado de Error
+Numero de paquetes recibidos por el cliente:82028
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+6274b329dd23bb1aadebdd3de1c5a2569e542efe
+---------------------------------------
+Nombre del archivo received_file16.mp4
+Tamanio del archivo: 87241337 bytes
+Cliente 16 termino con estado de Error
+Numero de paquetes recibidos por el cliente:85198
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+173c4a252a70bc9574e12f4ac379ad764309e184
+---------------------------------------
+Nombre del archivo received_file11.mp4
+Tamanio del archivo: 87491193 bytes
+Cliente 11 termino con estado de Error
+Numero de paquetes recibidos por el cliente:85442
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+d537cd31a9b9ecfdebfbdd25d4800bbb041b2789
+---------------------------------------
+Nombre del archivo received_file22.mp4
+Tamanio del archivo: 84467321 bytes
+Cliente 22 termino con estado de Error
+Numero de paquetes recibidos por el cliente:82489
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+bbb2b7ae58d32e8c6a7330adc9f2538d4bf22682
+---------------------------------------
+Nombre del archivo received_file0.mp4
+Tamanio del archivo: 86764153 bytes
+Cliente 0 termino con estado de Error
+Numero de paquetes recibidos por el cliente:84732
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+8748ea3f046e28d54703030f6bb032c52b31207b
+---------------------------------------
+Nombre del archivo received_file6.mp4
+Tamanio del archivo: 85961728 bytes
+Cliente 6 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83948
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+f949bc9051ff2544cce062d939b065d8a12e6cde
+---------------------------------------
+Nombre del archivo received_file24.mp4
+Tamanio del archivo: 88432249 bytes
+Cliente 24 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86361
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+594e9091cfcdc670088812371d159c4781eb1a02
+---------------------------------------
+Nombre del archivo received_file14.mp4
+Tamanio del archivo: 85163641 bytes
+Cliente 14 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83169
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+3b9cc8742935a60c7e86c678243e434e68b54033
+---------------------------------------
+Nombre del archivo received_file23.mp4
+Tamanio del archivo: 83861113 bytes
+Cliente 23 termino con estado de Error
+Numero de paquetes recibidos por el cliente:81897
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+857344c69837b4b53d7827885d601a9d4a1c1446
+---------------------------------------
+Nombre del archivo received_file2.mp4
+Tamanio del archivo: 88974969 bytes
+Cliente 2 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86891
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+5eb4ad1b671d1319c8fab02662d1bdfded2e1ce0
+---------------------------------------
+Nombre del archivo received_file18.mp4
+Tamanio del archivo: 88152697 bytes
+Cliente 18 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86088
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+bf4f18535c3744a6be5d5b27000583625e8eaf11
+---------------------------------------
+Nombre del archivo received_file19.mp4
+Tamanio del archivo: 88563321 bytes
+Cliente 19 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86489
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+848c83145a74b7024bd956590a750c0d50b172ad
+---------------------------------------
+Nombre del archivo received_file17.mp4
+Tamanio del archivo: 88649337 bytes
+Cliente 17 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86573
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+bd2177b8fd95efb37301ba58565e50e04115af03
+---------------------------------------
+Nombre del archivo received_file12.mp4
+Tamanio del archivo: 85654137 bytes
+Cliente 12 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83648
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+e1fc24d0c1cfc29039459553b1b73f2cdb2ba1af
+---------------------------------------
+Nombre del archivo received_file8.mp4
+Tamanio del archivo: 88820345 bytes
+Cliente 8 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86740
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+ebda0927708f3a2755f510ce46841ffd0f0963d6
+---------------------------------------
+Nombre del archivo received_file7.mp4
+Tamanio del archivo: 85955193 bytes
+Cliente 7 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83942
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+e8911d1bbdc970ba494be53f3776f5a7088da97e
+---------------------------------------
+Nombre del archivo received_file4.mp4
+Tamanio del archivo: 84686848 bytes
+Cliente 4 termino con estado de Error
+Numero de paquetes recibidos por el cliente:82703
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+38fe879af9cd0583f2c29b3e8de7f66c7355cf90
+---------------------------------------
+Nombre del archivo received_file3.mp4
+Tamanio del archivo: 88287865 bytes
+Cliente 3 termino con estado de Error
+Numero de paquetes recibidos por el cliente:86220
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+20ed03066fdd7f97c917e0bc97807fa59685f2c9
+---------------------------------------
+Nombre del archivo received_file20.mp4
+Tamanio del archivo: 85274233 bytes
+Cliente 20 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83277
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+9055195557674db45a89b11653ceaf1ba63b2144
+---------------------------------------
+Nombre del archivo received_file13.mp4
+Tamanio del archivo: 86001664 bytes
+Cliente 13 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83987
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+8af860e3722da7a3f3b017009812ce24f22176c9
+---------------------------------------
+Nombre del archivo received_file5.mp4
+Tamanio del archivo: 85120633 bytes
+Cliente 5 termino con estado de Error
+Numero de paquetes recibidos por el cliente:83127
+
+HASH calculado en el servidor: 
+02fee27a44dd2a83f9400271f85a248a1a3be6de
+HASH calculado en el cliente: 
+a15aeb972395a045b7d022e0d8b40215ea654c74
+---------------------------------------
