@@ -47,7 +47,7 @@ def createLog():
 
     # Nombre del archivo y tamanio
     fileN = fileName.split("/")
-    fileN = fileN[1]
+    fileN = fileN[2]
 
     logFile.write("Nombre del archivo: " + fileN + "\n")
 
@@ -181,7 +181,7 @@ while True:
 
     if (mess.decode() == "REQUEST"):
         if(i==26):
-            i=0
+            i=1
         t = threading.Thread(target=servidor, args=(i,dir))
         i += 1
         t.start()

@@ -17,16 +17,16 @@ def cliente(num, last, lock):
     # TCP ------> socket.AF_INET, socket.SOCK_STREAM
     # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    host="127.0.0.1"
+    host = "127.0.0.1"
     HostPort = (host, 20001)
     i = 0
 
     # Pedir puerto por donde se va a comunicar con el thread del servidor que le es asignado
     s.sendto("REQUEST".encode(), HostPort)
-    data=s.recvfrom(BUFF)
-    HostPort=(data[1])
+    data = s.recvfrom(BUFF)
+    HostPort = (data[1])
     # print("HOSTPORT--->   ",HostPort)
-    s.sendto("READY".encode(),HostPort)
+    s.sendto("READY".encode(), HostPort)
 
     mensajesConsola.append("Listo para recibir")
     print("Listo para recibir")
@@ -44,7 +44,7 @@ def cliente(num, last, lock):
     fileName = "Recibido/received_file" + str(num) + fTipo
     with open(fileName, 'wb') as f:
         mensajesConsola.append("Recibiendo archivo")
-        print("Recibiendo archivo",num)
+        print("Recibiendo archivo", num)
         while True:
             # print('receiving data...',i)
             i += 1
@@ -63,17 +63,17 @@ def cliente(num, last, lock):
                 f.write(data[0])
     f.close()
     mensajesConsola.append("Archivo recibido")
-    print("ARCHIVO RECIVIDO",num)
+    print("ARCHIVO RECIVIDO", num)
     # Numero de paquetes recibidos
     datosLog += str(i) + "/"
 
     hashR = hashR[4:].decode()
     mensajesConsola.append("Cliente" + str(num) + "Hash Recibido: \n" + str(hashR))
     mensajesConsola.append("Cliente" + str(num) + "Hash Calculado:\n" + str(sha1.hexdigest()))
-    print("HASH RECIBIDO",num)
-    notif=""
-    if(hashR==sha1.hexdigest()):
-        notif="Exito"
+    print("HASH RECIBIDO", num)
+    notif = ""
+    if (hashR == sha1.hexdigest()):
+        notif = "Exito"
         mensajesConsola.append("Archivo recibido Exitosamente")
     else:
         notif = "Error"
@@ -81,8 +81,8 @@ def cliente(num, last, lock):
     print("NOTIF")
     # Notificacion de recepcion
     mensajesConsola.append("Envio de notificacion")
-    recepcion="Cliente " + str(num) + " termino con estado de " + notif
-    datosLog+=recepcion+"/"
+    recepcion = "Cliente " + str(num) + " termino con estado de " + notif
+    datosLog += recepcion + "/"
 
     # Envio de tiempo
     datosLog += str(finT) + "/"
@@ -90,9 +90,10 @@ def cliente(num, last, lock):
     # Mandar Terminate para terminar el servidor en el puerto en que se encuentre
     datosLog += "TERMINATE/"
 
+    datosLog += "Hash calculado por el cliente: \n" + str(hashR)
 
     # print(datosLog)
-    s.sendto(datosLog.encode(),HostPort)
+    s.sendto(datosLog.encode(), HostPort)
     print("ENVIO DATOS")
 
     logDatosCliente(recepcion, i, hashR, sha1.hexdigest(), fileName)
@@ -101,6 +102,7 @@ def cliente(num, last, lock):
         print(i)
 
     # s.close()
+
 
 def createLog():
     print("Creando log")
