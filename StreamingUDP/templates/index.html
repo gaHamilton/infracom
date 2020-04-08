@@ -5,5 +5,21 @@
   <body>
     <h1>Video Streaming</h1>
     <img src="{{ url_for('video_feed') }}">
+    <button type="button" onclick="loadDoc()">Pause/Play</button>
+
+
+     <script>
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("garr").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "{{ url_for('PausePlay') }}", true);
+      xhttp.send();
+    }
+    </script>
+
   </body>
 </html>

@@ -22,26 +22,28 @@ app = Flask(__name__)
 # vs = VideoStream(src=0).start()
 # vs2 = cv2.VideoCapture(0)
 vs3 = cv2.VideoCapture('../Doc/Prueba4.mp4')
+pausePlay=False
 time.sleep(2.0)
 
 
 @app.route("/")
 def index():
     # return the rendered template
+    print("index")
     return render_template("index.html")
 
 
-def detect_motion():
+def detect_motion(port):
     # grab global references to the video stream, output frame, and
     # lock variables
-    global vs, outputFrame, lock
+    global vs, outputFrame, lock, pausePlay
 
     # loop over frames from the video stream
     frame_counter = 0
     while True:
         # read the next frame from the video stream, resize it,
         # convert the frame to grayscale, and blur it
-        # TODO elegir vs, aunque en verdad solo sirve para vs3
+        # TODO elegir vs, aunque en verdad solo sirve para vs3 por como esta ahora
         # frame = vs.read()
         # ret, frame = vs2.read()
         ret, frame = vs3.read()
@@ -53,6 +55,12 @@ def detect_motion():
         frame_counter += 1
 
         frame = imutils.resize(frame, width=800)
+
+        if cv2.waitKey(25) & 0xFF == ord('p') or pausePlay:
+            while pausePlay:
+                cv2.imshow("Video en puerto "+str(port), frame)
+
+        cv2.imshow("Video en puerto " + str(port), frame)
         # acquire the lock, set the output frame, and release the
         # lock
         with lock:
@@ -85,8 +93,15 @@ def generate():
 def video_feed():
     # return the response generated along with the specific media
     # type (mime type)
-    return Response(generate(),
-                    mimetype="multipart/x-mixed-replace; boundary=frame")
+    return Response(generate(),mimetype="multipart/x-mixed-replace; boundary=frame")
+
+@app.route("/PausePlay",methods=["GET"])
+def PausePlay():
+    global pausePlay
+    with lock:
+        pausePlay= not pausePlay
+    print("PAUSE PLAY:", pausePlay)
+    return str(pausePlay)
 
 
 # check to see if this is the main thread of execution
@@ -106,7 +121,7 @@ if __name__ == '__main__':
     port = 8000
 
     # start a thread that will perform motion detection
-    t = threading.Thread(target=detect_motion, args=())
+    t = threading.Thread(target=detect_motion, args=(port,))
     t.daemon = True
     t.start()
     # start the flask app
