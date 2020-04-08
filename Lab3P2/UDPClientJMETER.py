@@ -42,7 +42,7 @@ def cliente(num, last, lock):
     hashR = hashR[4:].decode()
     print("HASH RECIBIDO: ", hashR)
 
-    # s.close()
+    s.close()
 
 
 cantidadCliente = 25

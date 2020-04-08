@@ -1,0 +1,2 @@
+Archivo para poder hacer que la carpeta aparezca en guithub
+es importante que la carpeta exista al correr los archivos .py
