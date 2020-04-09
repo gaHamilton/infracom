@@ -33,7 +33,7 @@ def index():
     return render_template("index.html")
 
 
-def detect_motion(port):
+def detect_motion():
     # grab global references to the video stream, output frame, and
     # lock variables
     global vs, outputFrame, lock, pausePlay
@@ -58,8 +58,7 @@ def detect_motion(port):
 
         while pausePlay:
             # cv2.imshow("Video en puerto " + str(port), frame)
-            # Solo para que funcione el ciclo
-            frame = frame
+            continue
 
         # cv2.imshow("Video en puerto " + str(port), frame)
         # acquire the lock, set the output frame, and release the
@@ -118,11 +117,11 @@ if __name__ == '__main__':
     # args = vars(ap.parse_args())
 
     # assign ip and port, above is to receive it as parameters when running the command
-    ip = "0.0.0.0"
+    ip = ""
     port = 8000
 
     # start a thread that will perform motion detection
-    t = threading.Thread(target=detect_motion, args=(port,))
+    t = threading.Thread(target=detect_motion, args=())
     t.daemon = True
     t.start()
     # start the flask app
