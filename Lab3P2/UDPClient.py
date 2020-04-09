@@ -17,6 +17,7 @@ def cliente(num, last, lock):
     # TCP ------> socket.AF_INET, socket.SOCK_STREAM
     # UDP ------> socket.AF_INET, socket.SOCK_DGRAM
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.settimeout(10)
     host = "127.0.0.1"
     HostPort = (host, 20001)
     i = 0
@@ -39,6 +40,8 @@ def cliente(num, last, lock):
     # print("TIPO:",fTipo)
     finT = 0
 
+    timeout=True
+
     hashR = ""
     sha1 = hashlib.sha1()
     fileName = "Recibido/received_file" + str(num) + fTipo
@@ -48,7 +51,15 @@ def cliente(num, last, lock):
         while True:
             # print('receiving data...',i)
             i += 1
-            data = s.recvfrom(BUFF)
+            try:
+                data = s.recvfrom(BUFF)
+            except:
+                finT = time.time()
+                hashR = "TIMEOUT"
+                timeout=False
+                print("SALGO CON EXCEPCION")
+                break
+
             if not data[0]:
                 break
 
@@ -67,7 +78,8 @@ def cliente(num, last, lock):
     # Numero de paquetes recibidos
     datosLog += str(i) + "/"
 
-    hashR = hashR[4:].decode()
+    if timeout:
+        hashR = hashR[4:].decode()
     mensajesConsola.append("Cliente" + str(num) + "Hash Recibido: \n" + str(hashR))
     mensajesConsola.append("Cliente" + str(num) + "Hash Calculado:\n" + str(sha1.hexdigest()))
     print("HASH RECIBIDO", num)
