@@ -117,7 +117,7 @@ if __name__ == '__main__':
     # args = vars(ap.parse_args())
 
     # assign ip and port, above is to receive it as parameters when running the command
-    ip = ""
+    ip = "0.0.0.0"
     port = 8000
 
     # start a thread that will perform motion detection
