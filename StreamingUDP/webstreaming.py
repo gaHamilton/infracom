@@ -56,11 +56,12 @@ def detect_motion(port):
 
         frame = imutils.resize(frame, width=800)
 
-        if cv2.waitKey(25) & 0xFF == ord('p') or pausePlay:
-            while pausePlay:
-                cv2.imshow("Video en puerto "+str(port), frame)
+        while pausePlay:
+            # cv2.imshow("Video en puerto " + str(port), frame)
+            # Solo para que funcione el ciclo
+            frame = frame
 
-        cv2.imshow("Video en puerto " + str(port), frame)
+        # cv2.imshow("Video en puerto " + str(port), frame)
         # acquire the lock, set the output frame, and release the
         # lock
         with lock:
@@ -100,7 +101,7 @@ def PausePlay():
     global pausePlay
     with lock:
         pausePlay= not pausePlay
-    print("PAUSE PLAY:", pausePlay)
+    # print("PAUSE PLAY:", pausePlay)
     return str(pausePlay)
 
 
